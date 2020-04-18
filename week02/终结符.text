@@ -1,0 +1,55 @@
+BNF定义语言：
+
+"a"
+"b"
+
+<program:>="a"+|"b"+
+<program>:=<program> "a" + | <program> "b"
+
+定义：
+数字
+<Number> = "0" | "1" |"2" ..|"9"
+十进制数
+<DecimalNumber> = "0" | (( "1" |"2" ..|"9" )+<Number>*)
+加法
+<ex...>=<DecimalNumber>"+"<DecimalNumber>
+<ex...>= <ex..>"+"<DecimalNumber>
+最终加法（通过递归定义）
+<ex...>=<DecimalNumber>|<ex...>"+"<DecimalNumber>
+
+四则运算
+加法表达式
+<ActiveExpression>=<DecimalNumber>|<ActiveExpression>"+"<DecimalNumber>
+乘法表达式
+<MutiplicativeExpression>=<DecimalNumber>|<MutiplicativeExpression>"*"<DecimalNumber>
+
+1+2*3
+<MutiplicativeExpression>=<MutiplicativeExpression>|<ActiveExpression>"*"<MutiplicativeExpression>
+
+
+
+<PrimaryExpression>=<DecimalNumber>|"("<logicalExpression>")" // 带括号的四则运算
+
+
+
+
+
+答案
+<Number> = "0" | "1" | "2" | ..... | "9"
+
+<DecimalNumber> = "0" | (("1" | "2" | ..... | "9") <Number>* )
+
+<PrimaryExpression> = <DecimalNumber> |
+    "(" <LogicalExpression> ")"
+
+<MultiplicativeExpression> = <PrimaryExpression> | 
+    <MultiplicativeExpression> "*" <PrimaryExpression>| 
+    <MultiplicativeExpression> "/" <PrimaryExpression>
+
+<AdditiveExpression> = <MultiplicativeExpression> | 
+    <AdditiveExpression> "+" <MultiplicativeExpression>| 
+    <AdditiveExpression> "-" <MultiplicativeExpression>
+
+<LogicalExpression> = <AdditiveExpression> | 
+    <LogicalExpression> "||" <AdditiveExpression> | 
+    <LogicalExpression> "&&" <AdditiveExpression>
