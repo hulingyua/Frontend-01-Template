@@ -35,6 +35,7 @@ BNF定义语言：
 
 
 答案
+语法树建立：语法分析
 <Number> = "0" | "1" | "2" | ..... | "9"
 
 <DecimalNumber> = "0" | (("1" | "2" | ..... | "9") <Number>* )
@@ -53,3 +54,7 @@ BNF定义语言：
 <LogicalExpression> = <AdditiveExpression> | 
     <LogicalExpression> "||" <AdditiveExpression> | 
     <LogicalExpression> "&&" <AdditiveExpression>
+
+思考题：将上面的文法改为正则表达式
+
+练习；将知道的语言自己分类？
