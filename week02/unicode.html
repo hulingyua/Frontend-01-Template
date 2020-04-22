@@ -9,10 +9,12 @@
     <script>
         console.log(String.fromCharCode)
         for (let i = 0; i < 128; i++) {
-            document.write(String.fromCharCode[i].toString()+"<br/>")
+            document.write(i +"<span style='color:red'>" + String.fromCharCode(i).toString() + "</span>" +"<br/>")
+            console.log(String.fromCharCode(i).toString())
             
         }
-
+        var \u5389\u5bb3 = 'head';
+        console.log(厉害) // "厉害".codePointAt(0).toString()  "厉害".codePointAt(1).toString() 
 
         // 一 Unicode 需要掌握的
         // line feed      space        cjk（中日韩）  

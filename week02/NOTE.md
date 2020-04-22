@@ -64,4 +64,53 @@ atom                      expression  Statement  structure  program
 重学js
 语法  ->语义 -> 运行时
 
-1·1
+
+unicode
+字符集
+a: 97 A: 65
+
+block
+basic latin 0-128 ask范围
+LINE FEED   十
+Cjk 中/日/韩文字符
+BMP:基本字符（4位字符，兼容性好）.fromCharCode 
+非BMP .fromCodePont .codePontAt
+
+category 分类
+Separater Space   所有的space在js中都合法
+
+
+ inputElement
+    whiteSpace 空白
+    LineTerminator 回车 换行
+    Comment 注释
+    Token 标记（js中有效的内容）
+
+    whiteSpace 从完备性讲支持Unicode的空白
+        <TAB> 制表符 使用tab键出现的空格  u+009
+        <VT> 在js中是\v 纵向的tab 纵向制表符
+        <FF> 10   ?
+        <SP> 普通空格
+        <NBSP> no-break space                   00a0 使用它可以将词连在一起当作一个词，换行的时候不分开
+        <ZWNBS> zero with no break spance      feff  没懂？？？BOM bit order mask  零宽空格
+        <usb> 
+    LineTerminator 换行符
+        <LF> 推荐使用 000a 
+        <cr> 
+        <LS> 不在Unicode编码内，最好不用
+        <PS> 不在Unicode编码内，最好不用
+    Comment
+        单行 //
+        多行 /**/
+    Token
+        IndentifierName 必须以字母开头 标识符（变量名，属性名） eg: 变量名，document，write
+            keywords
+            identifier 变量
+            future reserved keywords：enum
+        punctuator 符号 eg: 括号，等号，小于号
+        literal
+            Number
+            String
+            undefined
+            null
+            Bullean
